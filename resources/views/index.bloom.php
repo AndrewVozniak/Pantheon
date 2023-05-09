@@ -15,6 +15,7 @@
 </head>
 <body>
     <h1>Hello {{ $name }}</h1>
+    <h2>If condition:</h2>
     <span>
         @if($name === 'Bloom')
             <p>Hi Bloom!</p>
@@ -24,5 +25,12 @@
             <p>Hi Stranger!</p>
         @endif
     </span>
+
+    <h2>Foreach loop:</h2>
+    <ul>
+        @foreach($someArray as $item)
+            <li>{{ $item }}</li>
+        @endforeach
+    </ul>
 </body>
 </html>

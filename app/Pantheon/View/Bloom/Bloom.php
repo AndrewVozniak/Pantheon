@@ -44,8 +44,9 @@ class Bloom extends BloomHandlers implements BloomInterface
 
     public function parse($content)
     {
-        $content = $this->parseEcho($content);
-        $content = $this->parseConditionals($content);
+        $content = parent::parseEcho($content);
+        $content = parent::parseConditionals($content);
+        $content = parent::parseForeach($content);
 
         // Add additional parsing logic for other directives
 

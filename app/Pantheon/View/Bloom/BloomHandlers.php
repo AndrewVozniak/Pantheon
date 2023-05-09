@@ -7,6 +7,8 @@ namespace App\Pantheon\View\Bloom;
  */
 class BloomHandlers
 {
+    public string $bloomSymbol = '@';
+
     /**
      * @param $content
      * @return array|string|null
@@ -23,9 +25,16 @@ class BloomHandlers
      */
     protected function parseConditionals($content): array|string
     {
-        $content = preg_replace('/@if\s*\((.+?)\)/', '<?php if ($1): ?>', $content);
-        $content = preg_replace('/@elseif\s*\((.+?)\)/', '<?php elseif ($1): ?>', $content);
-        $content = str_replace('@else', '<?php else: ?>', $content);
-        return str_replace('@endif', '<?php endif; ?>', $content);
+        $content = preg_replace('/'. $this->bloomSymbol . 'if\s*\((.+?)\)/', '<?php if ($1): ?>', $content);
+        $content = preg_replace('/'. $this->bloomSymbol . 'elseif\s*\((.+?)\)/', '<?php elseif ($1): ?>', $content);
+        $content = str_replace($this->bloomSymbol . 'else', '<?php else: ?>', $content);
+        return str_replace($this->bloomSymbol . 'endif', '<?php endif; ?>', $content);
+    }
+
+    protected function parseForeach($content): array|string
+    {
+        $content = preg_replace('/'. $this->bloomSymbol . 'foreach\s*\((.+?)\)/', '<?php foreach ($1): ?>', $content);
+        $content = str_replace($this->bloomSymbol . 'endforeach', '<?php endforeach; ?>', $content);
+        return $content;
     }
 }

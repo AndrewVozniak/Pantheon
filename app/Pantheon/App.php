@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Pantheon;
+use App\Pantheon\Router\RouteDispatcher;
+
 class App
 {
-    public static function run()
+    public static function run() : void
     {
-        echo '<pre>';
-        var_dump($_SERVER['REQUEST_URI']);
-        echo '</pre>';
+        // Check routes
+        $dispatcher = new RouteDispatcher();
+        $dispatcher->dispatch();
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Contracts\Actions;
+namespace App\Contracts\Pantheon;
 
 interface ActionInterface
 {

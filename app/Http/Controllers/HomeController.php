@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-class PostController extends Controller
+class HomeController extends Controller
 {
     public function index() : void
     {
-        echo "All posts";
+        echo "Homepage" . $_GET['name'];
     }
 }

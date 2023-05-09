@@ -44,6 +44,23 @@ class RouteContainer
         return $this;
     }
 
+
+    /**
+     * @return string
+     */
+    public function getName() : string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMiddleware() : string
+    {
+        return $this->middleware;
+    }
+
     /**
      * @return string
      */

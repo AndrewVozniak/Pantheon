@@ -8,7 +8,11 @@ class App
     public static function run() : void
     {
         // Check routes
-        $dispatcher = new RouteDispatcher();
-        $dispatcher->dispatch();
+        try {
+            $dispatcher = new RouteDispatcher();
+            $dispatcher->dispatch();
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+        }
     }
 }

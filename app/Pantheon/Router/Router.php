@@ -2,7 +2,7 @@
 
 namespace App\Pantheon\Router;
 
-class Route
+class Router
 {
     private static array $routes = [];
 

@@ -1,6 +1,6 @@
 <?php
 
-use App\Pantheon\Router\Route;
+use App\Pantheon\Router\Router;
 
-Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->setName('home')->setMiddleware('auth');
-Route::post('/post/{id}/{name}', [App\Http\Controllers\PostController::class, 'show'])->setName('home')->setMiddleware('auth');
+Router::get('/', [App\Http\Controllers\HomeController::class, 'index'])->setName('posts')->setMiddleware('auth');
+Router::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->setName('posts')->setMiddleware('auth');

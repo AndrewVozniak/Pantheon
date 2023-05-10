@@ -12,10 +12,16 @@ use Exception;
 class Bloom extends BloomHandlers implements BloomInterface
 {
     public string $viewPath;
+    protected string $bloomSymbol;
+    protected string $componentsPath;
+    protected string $includesPath;
 
     public function __construct()
     {
         $this->viewPath = 'resources/views';
+        $this->bloomSymbol = '@';
+        $this->componentsPath = 'resources/views/components';
+        $this->includesPath = 'resources/views/includes';
     }
 
     /**
@@ -44,11 +50,14 @@ class Bloom extends BloomHandlers implements BloomInterface
 
     public function parse($content)
     {
-        $content = parent::parseEcho($content);
-        $content = parent::parseConditionals($content);
-        $content = parent::parseForeach($content);
-
-        // Add additional parsing logic for other directives
+        $content = parent::parseInclude($content); // @include || include static element
+        $content = parent::parseComponent($content); // @component || include dynamic elements, in components you can use directives
+        $content = parent::parseEcho($content); // {{ }} || echo variable
+        $content = parent::parseConditionals($content); // @if, @elseif, @else, @endif
+        $content = parent::parseForeach($content); // @foreach, @endforeach
+        $content = parent::parseFor($content); // @for, @endfor
+        $content = parent::parseIsset($content); // @isset @endisset
+        $content = parent::parseEmpty($content); // @empty @endempty
 
         return $content;
     }

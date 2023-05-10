@@ -1,19 +1,6 @@
-<!--@extends('layouts/app')-->
+@include(start)
+    @component(header)
 
-<!--@section('content')-->
-<!--<h2>Hello, {{ $name }}!</h2>-->
-<!--@endsection-->
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
     <h1>Hello {{ $name }}</h1>
     <h2>If condition:</h2>
     <span>
@@ -32,5 +19,25 @@
             <li>{{ $item }}</li>
         @endforeach
     </ul>
-</body>
-</html>
+
+    <h2>For loop:</h2>
+    <ul>
+        @for($i = 0; $i < 10; $i++)
+            <li>{{ $i }}</li>
+        @endfor
+    </ul>
+
+    <h2>Isset example:</h2>
+    <span>
+        @isset($name)
+            <p>Hi {{ $name }}!</p>
+        @endisset
+    </span>
+
+    <h2>Empty example:</h2>
+    <span>
+        @empty($emptyArray)
+            <p>Hi {{ $name }}!</p>
+        @endempty
+    </span>
+@include(end)

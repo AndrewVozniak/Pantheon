@@ -7,15 +7,5 @@
 </head>
 <body>
 <header>
-    <h1>Headers</h1>
-</header>
-
-<main>
     @yield('content')
-</main>
-
-<footer>
-    <p>Footer</p>
-</footer>
-</body>
-</html>
+</header>

@@ -11,6 +11,6 @@ class HomeController extends Controller
      */
     public function index() : void
     {
-        View::render('index', ['name' => 'John', 'someArray' => ['one', 'two', 'three']]);
+        View::render('index', ['name' => 'John', 'someArray' => ['one', 'two', 'three'], 'emptyArray' => [], 'title' => 'Home Page']);
     }
 }

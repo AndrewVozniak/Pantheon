@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Pantheon\View\View;
 
+/**
+ * Class HomeController | Page: /
+ */
 class HomeController extends Controller
 {
     /**
      * @throws \Exception
      */
-    public function index() : void
+    public function index(): void
     {
-        View::render('index', ['name' => 'John', 'someArray' => ['one', 'two', 'three'], 'emptyArray' => [], 'title' => 'Home Page']);
+        render('index', ['name' => 'John', 'someArray' => ['one', 'two', 'three'], 'emptyArray' => [], 'title' => 'Home Page']);
     }
 }

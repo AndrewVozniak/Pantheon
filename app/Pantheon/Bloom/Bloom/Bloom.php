@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Pantheon\View\Bloom;
+namespace App\Pantheon\Bloom\Bloom;
 
 use App\Contracts\Pantheon\BloomInterface;
 use Exception;
@@ -11,9 +11,9 @@ use Exception;
 class Bloom extends BloomHandlers implements BloomInterface
 {
     protected string $viewPath;
-    protected string $bloomSymbol;
-    protected string $layoutsPath;
-    protected string $componentsPath;
+    public string $bloomSymbol;
+    public string $layoutsPath;
+    public string $componentsPath;
     protected string $includesPath;
 
     public function __construct()
@@ -54,6 +54,7 @@ class Bloom extends BloomHandlers implements BloomInterface
      */
     public function parse($content)
     {
+        header('Content-Type: text/html; charset=UTF-8');
         $content = parent::parseLayout($content); // @extends, @section, @endsection, @parent
 
         $content = parent::parseInclude($content); // @include || include static element
@@ -65,6 +66,8 @@ class Bloom extends BloomHandlers implements BloomInterface
         $content = parent::parseIsset($content); // @isset @endisset
         $content = parent::parseEmpty($content); // @empty @endempty
         $content = parent::parseRoute($content); // @route('name')
+        $content = parent::parseAlert($content); // @alert('string')
+
 
         return $content;
     }

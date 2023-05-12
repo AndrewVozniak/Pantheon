@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Pantheon\View;
+namespace App\Pantheon\Bloom;
 
-use App\Pantheon\View\Bloom\Bloom;
+use App\Pantheon\Bloom\Bloom\Bloom;
 
 class View
 {

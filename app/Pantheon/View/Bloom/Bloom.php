@@ -5,14 +5,14 @@ namespace App\Pantheon\View\Bloom;
 use App\Contracts\Pantheon\BloomInterface;
 use Exception;
 
-
 /** Bloom template engine
  *
  */
 class Bloom extends BloomHandlers implements BloomInterface
 {
-    public string $viewPath;
+    protected string $viewPath;
     protected string $bloomSymbol;
+    protected string $layoutsPath;
     protected string $componentsPath;
     protected string $includesPath;
 
@@ -21,6 +21,7 @@ class Bloom extends BloomHandlers implements BloomInterface
         $this->viewPath = 'resources/views';
         $this->bloomSymbol = '@';
         $this->componentsPath = 'resources/views/components';
+        $this->layoutsPath = 'resources/views/layouts';
         $this->includesPath = 'resources/views/includes';
     }
 
@@ -30,7 +31,7 @@ class Bloom extends BloomHandlers implements BloomInterface
      * @return string
      * @throws \Exception
      */
-    public function render(string $name, array $data = [])
+    public function render(string $name, array $data = []): string
     {
         $viewPath = $this->viewPath . '/' . str_replace('.', '/', $name) . '.bloom.php';
 
@@ -48,8 +49,13 @@ class Bloom extends BloomHandlers implements BloomInterface
         return ob_get_clean();
     }
 
+    /**
+     * @throws Exception
+     */
     public function parse($content)
     {
+        $content = parent::parseLayout($content); // @extends, @section, @endsection, @parent
+
         $content = parent::parseInclude($content); // @include || include static element
         $content = parent::parseComponent($content); // @component || include dynamic elements, in components you can use directives
         $content = parent::parseEcho($content); // {{ }} || echo variable
@@ -58,6 +64,7 @@ class Bloom extends BloomHandlers implements BloomInterface
         $content = parent::parseFor($content); // @for, @endfor
         $content = parent::parseIsset($content); // @isset @endisset
         $content = parent::parseEmpty($content); // @empty @endempty
+        $content = parent::parseRoute($content); // @route('name')
 
         return $content;
     }

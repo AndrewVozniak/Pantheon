@@ -62,7 +62,7 @@ class RouteDispatcher
     private function absoluteCompare(array $routes, string $currentURI) : object | false
     {
         foreach ($routes as $route) {
-            if ($route->getRoute() === parse_url($_SERVER['REQUEST_URI'])['path']) {
+            if ($route->getLink() === parse_url($_SERVER['REQUEST_URI'])['path']) {
                 return $route;
             }
         }

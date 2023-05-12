@@ -4,7 +4,7 @@ namespace App\Pantheon\Router;
 
 class RouteContainer
 {
-    private string $route;
+    private string $link;
     private string $controller;
     private string $method;
     private string $httpMethod;
@@ -16,9 +16,9 @@ class RouteContainer
      * @param string $controller
      * @param string $method
      */
-    public function __construct(string $route, string $controller, string $method, string $httpMethod)
+    public function __construct(string $link, string $controller, string $method, string $httpMethod)
     {
-        $this->route = $route;
+        $this->link = $link;
         $this->controller = $controller;
         $this->method = $method;
         $this->httpMethod = $httpMethod;
@@ -72,9 +72,9 @@ class RouteContainer
     /**
      * @return string
      */
-    public function getRoute() : string
+    public function getLink() : string
     {
-        return $this->route;
+        return $this->link;
     }
 
     /**

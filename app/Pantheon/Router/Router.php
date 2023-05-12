@@ -55,6 +55,21 @@ class Router
     }
 
     /**
+     * @param string $name
+     * @return string|null
+     */
+    public static function getRouteByName(string $name): null|RouteContainer
+    {
+        foreach (self::$routes as $route) {
+            if ($route->getName() === $name) {
+                return $route;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * @return array
      */
     public static function getRoutes() : array

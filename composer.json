@@ -6,14 +6,13 @@
 
   "authors": [
     {
-      "name": "Your Name",
-      "email": "your-email@example.com"
+      "name": "Andrew Vozniak",
+      "email": "a.vozniaks@gmail.com"
     }
   ],
 
   "require": {
     "php": "^7.4",
-    "other-package": "^1.0",
     "ext-pdo": "*"
   },
 

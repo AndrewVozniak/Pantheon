@@ -2,7 +2,13 @@
 
 namespace App\Contracts\Pantheon;
 
+/**
+ * Interface ActionInterface
+ */
 interface ActionInterface
 {
-    public function run();
+    /**
+     * @return mixed
+     */
+    public function run(): mixed;
 }

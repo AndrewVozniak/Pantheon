@@ -4,6 +4,9 @@ namespace App\Pantheon\Bloom;
 
 use App\Pantheon\Bloom\Bloom\Bloom;
 
+/**
+ * Class View
+ */
 class View
 {
     /**

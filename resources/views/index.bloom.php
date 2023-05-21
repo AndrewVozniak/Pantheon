@@ -59,7 +59,7 @@
     </div>
 
     <div class="mt-5">
-        <h2 class="text-2xl">Route demonstation</h2>
+        <h2 class="text-2xl">Route demonstration</h2>
         <a href="@route(home, ['id' => 1])" class="text-3xl font-bold underline text-red-400">Home</a>
     </div>
 

@@ -1,6 +1,6 @@
-# Database PHP Framework
+# Pantheon PHP Framework
 
-Database is a robust, modern, and easy-to-use PHP framework designed to help you build scalable and secure web applications. Its modular architecture and intuitive syntax make it an excellent choice for developers of all levels.
+Pantheon is a robust, modern, and easy-to-use PHP framework designed to help you build scalable and secure web applications. Its modular architecture and intuitive syntax make it an excellent choice for developers of all levels.
 
 ## Features
 
